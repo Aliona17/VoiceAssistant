@@ -1,19 +1,25 @@
 import pyttsx3
+from SpeechRecognition import SpeechRecognition as sp
 
 def Voice():
-    d = input('Write something: ')
+    d = sp()
+    engine = pyttsx3.init()
+
     if d.isdigit():
-        engine = pyttsx3.init()
-        engine.say("You wrote digit, write string")
+        engine.say("You said digit, say string")
         engine.runAndWait()
-        Voice()
+        return Voice()
     elif d.isalpha():
-        engine = pyttsx3.init()
         engine.say("All is OK")
         engine.runAndWait()
+    return d
+
+
 
 Voice()
 
+
+# print(sp())
 
 
 
